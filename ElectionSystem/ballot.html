@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <!-- web3 -->
+    <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@0.18.2/dist/web3.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+   <!--<script src="js/app.js"></script>-->
+  
+    <title>Test Election System</title>
+  </head>
+  <body>
+     
+     
+    <div class="container">
+      <h1 class="text-center">1924 US Presidential Election</h1>
+    </div>
+
+    <div class="container md border"">
+ 
+      <div class="row border">
+        
+        <div class="col-sm-4 border">
+          
+          <h2 class="text-center text-white bg-dark">Federal</h2>
+
+          <div class="bg-light">
+          <h4 class="text-center">President/</h4>
+          <h4 class="text-center">Vice President</h4>
+          </div>
+
+          <div class="container border""> 
+            <div class="row">
+              <div class="col">
+                <input class="form-check-input" type="radio" name="federalVote1" id="federalVote1" value=1 onclick="updateVote('federalVote1', 0)">
+                <label class="form-check-label" for="federalRadio1">
+                  Calvin Coolidge <br> Charles G. Dawes
+                </label>
+              </div>
+              <div class="col">
+              <p class="text-right">(REP)</p>
+              </div>
+            </div> 
+          </div>
+
+          <div class="container border""> 
+            <div class="row">
+              <div class="col">
+                <input class="form-check-input" type="radio" name="federalVote1" id="federalVote1" value=2 onclick="updateVote('federalVote1', 0)">
+                <label class="form-check-label" for="federalRadio1">
+                  John W Davis <br> Charles W Bryan
+                </label>
+              </div>
+              <div class="col">
+              <p class="text-right">(DEM)</p>
+              </div>
+            </div> 
+          </div>
+  
+          <div class="container border""> 
+            <div class="row">
+              <div class="col">
+                <input class="form-check-input" type="radio" name="federalVote1" id="federalVote1" value=3 onclick="updateVote('federalVote1', 0)">
+                <label class="form-check-label" for="federalRadio1">
+                Robert  LaFollette <br> Burton K Wheeler
+                </label>
+              </div>
+              <div class="col">
+              <p class="text-right">(PRG)</p>
+              </div>
+            </div> 
+          </div>  
+
+                              <!-- President write in candidate -->
+                              <div class="container border""> 
+                                <div class="row">
+                                  <div class="col">
+                                    <input class="form-check-input" type="radio" name="federalVote1" id="federalVote1" value=0 onclick="updateVote('federalVote1', 0)">
+                                    <input type="text" class="form-control" id="FederalWriteIn1" placeholder="write-in candidate">
+                                  </div>
+                                </div> 
+                              </div>  
+                              <!-- Senate write in candidate -->
+          
+          
+          <div class="bg-light">
+          <h4 class="text-center">Representative in Congress</h4>
+          <h4 class="text-center">First District</h4>
+          </div>
+
+          <div class="container border""> 
+            <div class="row">
+              <div class="col">
+                <input class="form-check-input" type="radio" name="federalVote2" id="federalVote2" value=4 onclick="updateVote('federalVote2', 1)">
+                <label class="form-check-label" for="federalVote2">
+                  Henry A Cooper
+                </label>
+              </div>
+              <div class="col">
+              <p class="text-right">(REP)</p>
+              </div>
+            </div> 
+          </div>  
+
+          
+          <div class="container border""> 
+            <div class="row">
+              <div class="col">
+                <input class="form-check-input" type="radio" name="federalVote2" id="federalVote2" value=5 onclick="updateVote('federalVote2', 1)">
+                <label class="form-check-label" for="federalRadio2">
+                  Calvin Steward
+                </label>
+              </div>
+              <div class="col">
+              <p class="text-right">(DEM)</p>
+              </div>
+            </div> 
+          </div>  
+
+          <!-- House write in candidate -->
+          <div class="container border""> 
+            <div class="row">
+              <div class="col">
+                <input class="form-check-input" type="radio" name="federalVote2" id="federalVote2" value=0 onclick="updateVote('federalVote2', 1)">
+                <input type="text" class="form-control" id="FederalWriteIn2" placeholder="write-in candidate">
+              </div>
+            </div> 
+          </div>  
+          <!-- House write in candidate -->
+
+        </div>
+
+        <div class="col-sm-4 border">
+
+          <h2 class="text-center text-white bg-dark">State</h2>
+          <div class="bg-light">
+          <h4 class="text-center">Governer</h4>
+          </div>
+
+          <div class="container border""> 
+            <div class="row">
+              <div class="col">
+                <input class="form-check-input" type="radio" name="stateVote1" id="stateVote1" value=6 onclick="updateVote('stateVote1', 2)">
+              <label class="form-check-label" for="stateVote1">
+              John J. Blaine
+              </label>
+              </div>
+              <div class="col">
+              <p class="text-right">(REP)</p>
+              </div>
+            </div> 
+          </div>
+
+          <div class="container border""> 
+            <div class="row">
+              <div class="col">
+                <input class="form-check-input" type="radio" name="stateVote1" id="stateVote1" value=7 onclick="updateVote('stateVote1', 2)">
+              <label class="form-check-label" for="stateVote1">
+              Martin Lueck
+              </label>
+              </div>
+              <div class="col">
+              <p class="text-right">(DEM)</p>
+              </div>
+            </div> 
+          </div>
+
+                    <!-- Governer write in candidate -->
+                    <div class="container border""> 
+                      <div class="row">
+                        <div class="col">
+                          <input class="form-check-input" type="radio" name="stateVote1" id="stateVote1" value=0 onclick="updateVote('stateVote1', 2)">
+                          <input type="text" class="form-control" id="stateWriteIn1" placeholder="write-in candidate">
+                        </div>
+                      </div> 
+                    </div>  
+                    <!-- Governer write in candidate -->
+
+        <div class="bg-light">
+        <h4 class="text-center">Member of Assembly</h4>
+        <h4 class="text-center">Walworth County</h4>
+        </div>
+
+        <div class="container border""> 
+          <div class="row">
+            <div class="col">
+              <input class="form-check-input" type="radio" name="stateVote2" id="stateVote2" value=8 onclick="updateVote('stateVote2', 3)">
+              <label class="form-check-label" for="stateVote2">
+              Frank H Lawson
+              </label>
+            </div>
+            <div class="col">
+            <p class="text-right">(DEM)</p>
+            </div>
+          </div> 
+        </div>
+
+        <div class="container border""> 
+          <div class="row">
+            <div class="col">
+              <input class="form-check-input" type="radio" name="stateVote2" id="stateVote2" value=9 onclick="updateVote('stateVote2', 3)">
+              <label class="form-check-label" for="stateVote2">
+              Henry H Tubbs
+              </label>
+            </div>
+            <div class="col">
+            <p class="text-right">(PRG)</p>
+            </div>
+          </div> 
+        </div>  
+
+                            <!-- Assembly write in candidate -->
+                            <div class="container border""> 
+                              <div class="row">
+                                <div class="col">
+                                  <input class="form-check-input" type="radio" name="stateVote2" id="stateVote2" value=0 onclick="updateVote('stateVote2', 3)">
+                                  <input type="text" class="form-control" id="stateWriteIn2" placeholder="write-in candidate">
+                                </div>
+                              </div> 
+                            </div>  
+                            <!-- Assembly write in candidate -->
+
+        </div>
+
+        <div class="col-sm-4 border">
+          <h2 class="text-center text-white bg-dark">County</h2>
+          <div class="bg-light">
+          <h4 class="text-center">Sheriff</h4>
+          </div>
+
+          <div class="container border""> 
+            <div class="row">
+              <div class="col">
+              <input class="form-check-input" type="radio" name="countyVote1" id="countyVote1" value=10 onclick="updateVote('countyVote1', 4)">
+              <label class="form-check-label" for="countyVote1">
+              Max Porter
+              </label>
+              </div>
+              <div class="col">
+              <p class="text-right">(DEM)</p>
+              </div>
+            </div>                             
+          </div>
+
+          <div class="container border""> 
+            <div class="row">
+              <div class="col">
+              <input class="form-check-input" type="radio" name="countyVote1" id="countyVote1" value=11 onclick="updateVote('countyVote1', 4)">
+              <label class="form-check-label" for="countyVote1">
+              George L Harrington
+              </label>
+              </div>
+              <div class="col">
+              <p class="text-right">(REP)</p>
+              </div>
+            </div>                             
+          </div>
+
+                                      <!-- Sheriff write in candidate -->
+                                      <div class="container border""> 
+                                        <div class="row">
+                                          <div class="col">
+                                            <input class="form-check-input" type="radio" name="countyVote1" id="countyVote1" value=0 onclick="updateVote('countyVote1', 4)">
+                                            <input type="text" class="form-control" id="countyWriteIn1" placeholder="write-in candidate">
+                                          </div>
+                                        </div> 
+                                      </div>  
+                                      <!-- Sheriff write in candidate -->
+
+
+          <div class="bg-light">
+          <h4 class="text-center">Clerk of Court</h4>
+          </div>
+          <div class="container border""> 
+            <div class="row">
+              <div class="col">
+              <input class="form-check-input" type="radio" name="countyVote2" id="countyVote2" value=12 onclick="updateVote('countyVote2', 5)">
+              <label class="form-check-label" for="countyVote2">
+              John G Voss
+              </label>
+              </div>
+              <div class="col">
+              <p class="text-right">(IND)</p>
+              </div>
+            </div> 
+          </div>
+
+          <div class="container border""> 
+            <div class="row">
+              <div class="col">
+              <input class="form-check-input" type="radio" name="countyVote2" id="countyVote2" value=13 onclick="updateVote('countyVote2', 5)">
+              <label class="form-check-label" for="countyVote2">
+              Jack White
+              </label>
+              </div>
+              <div class="col">
+              <p class="text-right">(IND)</p>
+              </div>
+            </div> 
+          </div>
+
+                              <!-- Senate write in candidate -->
+                              <div class="container border""> 
+                                <div class="row">
+                                  <div class="col">
+                                    <input class="form-check-input" type="radio" name="countyVote2" id="countyVote2" value=0 onclick="updateVote('countyVote2', 5)">
+                                    <input type="text" class="form-control" id="countyWriteIn2" placeholder="write-in candidate">
+                                  </div>
+                                </div> 
+                              </div>  
+                              <!-- Senate write in candidate -->
+
+        </div>
+
+        
+      <div class="container lg">
+ 
+        <div class="row border">
+          
+          <div class="col">
+            <h2 class="text-center text-white bg-dark">Resolutions</h2>
+            <div class="bg-light">
+            <h4 class="text-left">Question 1</h4><p>Change the annual pay of legislators to $750</p>
+            </div>
+          </div>
+          
+          <div class="container border"> 
+            <div class="row">
+              
+              <div class="col-sm-1"></div>
+
+              <div class="col">
+              <input class="form-check-input" type="radio" name="stateRadio1" id="stateRadio1" value="option1">
+              <label class="form-check-label" for="federalRadio1">Yes</label>
+              </div>
+
+              <div class="col">
+                <input class="form-check-input" type="radio" name="stateRadio1" id="stateRadio1" value="option1">
+                <label class="form-check-label" for="federalRadio1">No</label>
+                </div>
+
+            </div> 
+          </div>
+
+          <div class="col">
+            <div class="bg-light">
+            <h4 class="text-left">Question 2</h4><p>Allows for state funding of the creation and preservation of state forests</p>
+          </div>
+          </div>
+
+          <div class="container border"> 
+            <div class="row">
+
+              <div class="col-sm-1"></div>
+
+              <div class="col">
+              <input class="form-check-input" type="radio" name="stateRadio1" id="stateRadio1" value="option1">
+              <label class="form-check-label" for="federalRadio1">Yes</label>
+              </div>
+
+              <div class="col">
+                <input class="form-check-input" type="radio" name="stateRadio1" id="stateRadio1" value="option1">
+                <label class="form-check-label" for="federalRadio1">No</label>
+                </div>
+
+            </div> 
+          </div>
+
+          <div class="col">
+            <div class="bg-light">
+            <h4 class="text-left">Question 3</h4><p>Allows for the legislature to provide additional circuit court judges to counties with more than 85,000 people</p>
+            </div>
+          </div>
+          <div class="container border"> 
+            <div class="row">
+
+              <div class="col-sm-1"></div>
+
+              <div class="col">
+              <input class="form-check-input" type="radio" name="stateRadio1" id="stateRadio1" value="option1">
+              <label class="form-check-label" for="federalRadio1">Yes</label>
+              </div>
+
+              <div class="col">
+                <input class="form-check-input" type="radio" name="stateRadio1" id="stateRadio1" value="option1">
+                <label class="form-check-label" for="federalRadio1">No</label>
+                </div>
+
+            </div> 
+          </div>
+
+
+        </div>
+        
+      </div>
+      
+        </div>
+      </div>
+    </div>
+    <div class="container p-3">
+    <div class="text-center">
+          <button type="button" class ="btn btn-primary btn-lg btn-block" onclick="submitVote()">
+            Submit Ballot
+            </button>
+    </div>
+    </div>
+
+
+<script>
+  if (typeof web3 !== 'undefined') {
+   web3 = new Web3(web3.currentProvider);
+} else {
+   web3 = new Web3(new Web3.providers.HttpProvider("http://127.0.0.1:9545"));
+}
+
+var accountNumber = 0; 
+web3.eth.defaultAccount = web3.eth.accounts[0];
+_account = web3.eth.accounts[accountNumber];
+var BallotContract = web3.eth.contract([
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "_message",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_officialName",
+				"type": "string"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"name": "ballotRequested",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"name": "testEvent",
+		"type": "event"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_voterAddress",
+				"type": "address"
+			}
+		],
+		"name": "checkVoted",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "closePoll",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "cID",
+				"type": "uint256"
+			}
+		],
+		"name": "getVoteCount",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "message",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "officialAddress",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "officialName",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "openPoll",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_voterAddress",
+				"type": "address"
+			},
+			{
+				"internalType": "string",
+				"name": "_voterName",
+				"type": "string"
+			}
+		],
+		"name": "registerVoter",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_voterAddress",
+				"type": "address"
+			},
+			{
+				"internalType": "string",
+				"name": "_voterName",
+				"type": "string"
+			}
+		],
+		"name": "requestBallot",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "_message",
+				"type": "string"
+			}
+		],
+		"name": "set",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "state",
+		"outputs": [
+			{
+				"internalType": "enum Ballot.State",
+				"name": "",
+				"type": "uint8"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint8",
+				"name": "p",
+				"type": "uint8"
+			},
+			{
+				"internalType": "uint8",
+				"name": "h",
+				"type": "uint8"
+			},
+			{
+				"internalType": "uint8",
+				"name": "g",
+				"type": "uint8"
+			},
+			{
+				"internalType": "uint8",
+				"name": "a",
+				"type": "uint8"
+			},
+			{
+				"internalType": "uint8",
+				"name": "s",
+				"type": "uint8"
+			},
+			{
+				"internalType": "uint8",
+				"name": "c",
+				"type": "uint8"
+			}
+		],
+		"name": "submitVote",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"name": "voterRegistry",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "voterName",
+				"type": "string"
+			},
+			{
+				"internalType": "bool",
+				"name": "hasVoted",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	}
+])
+
+var Contract = BallotContract.at("0x0e79D07A69B432eb9A11966AD6B8e45351783D90");
+var testVar = "tested";
+
+function test() {
+Contract.set(testVar);
+console.log("oh boy");
+}
+
+function changeAccount() {
+accountNumber++;
+web3.eth.defaultAccount = web3.eth.accounts[accountNumber];
+const addresses = web3.eth.getAccounts();
+console.log("accout changed to " + accountNumber);
+}
+
+var votes = [];
+
+function updateVote(voteName, voteNum){
+  console.log("updating: " + voteNum);
+  var selectedVote = document.getElementsByName(voteName);
+  for(i = 0; i < selectedVote.length; i++) {
+    if(selectedVote[i].checked){
+    votes[voteNum] = Number(selectedVote[i].value);
+    }                               
+    }
+  }
+
+function submitVote(){
+ Contract.submitVote(votes[0],votes[1],votes[2],votes[3],votes[4],votes[5],{from: _account, gas: 250000});
+console.log("submitted")
+
+location.replace("./index.html")
+}
+</script
+  </body>
+</html>
